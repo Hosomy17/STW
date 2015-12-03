@@ -1,21 +1,41 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.ImageEffects;
 
 public class Shaker : MonoBehaviour {
 
     private Vector3 directions;
     private Vector3 originPosition;
-    public float intensity;
+    private float   intensity;
+    private GameObject gameObjectt;
+
 	void Awake()
     {
         originPosition = transform.position;
+        gameObjectt = (GameObject) GameObject.Find("Background/Earth");
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        directions = Random.insideUnitSphere * intensity;
-        directions.z = originPosition.z;
+        
+        directions         = Random.onUnitSphere * intensity;
+        directions.z       = originPosition.z;
         transform.position = originPosition + directions;
+        //Debug.DrawRay(gameObjectt.transform.position, Random.insideUnitSphere * 20);
 	}
+
+    public void Shake(float intensity, float duration)
+    {
+        this.intensity = intensity;
+        StartCoroutine("StopShake", duration);
+        GetComponent<Blur>().enabled = true;
+    }
+
+    private IEnumerator StopShake(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        this.intensity = 0;
+        GetComponent<Blur>().enabled = false;
+    }
 }

@@ -25,13 +25,21 @@ public class ControllerTrashCan : ControllerGeneric
     public void Walk(Dictionary<string, object> input)
     {
         Vector3 mouseCoordinates = (Vector3)input["Axis"];
-        //rotation
-        float r = dataTrashCan.transform.parent.rotation.eulerAngles.z;
-        //Right
-        if (mouseCoordinates.x > 0.5 && r > 230)
-            FacadeTrashCan.Walk(dataTrashCan, 1);
-        //Left
-        else if (mouseCoordinates.x < 0.5 && r < 310)
-            FacadeTrashCan.Walk(dataTrashCan,-1);
+        string  state            = (string) input["State"];
+        if (state == "Hold")
+        {
+            //rotation
+            float r = dataTrashCan.transform.parent.rotation.eulerAngles.z;
+            //Right
+            if (mouseCoordinates.x > 0.5 && r > 230)
+                FacadeTrashCan.Walk(dataTrashCan, 1);
+            //Left
+            else if (mouseCoordinates.x < 0.5 && r < 310)
+                FacadeTrashCan.Walk(dataTrashCan, -1);
+            else
+                FacadeTrashCan.Idle(dataTrashCan);
+        }
+        else
+            FacadeTrashCan.Idle(dataTrashCan);
     }
 }
