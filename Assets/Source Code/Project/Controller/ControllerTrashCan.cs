@@ -13,11 +13,11 @@ public class ControllerTrashCan : ControllerGeneric
 
     public override void SendInput(Dictionary<string, object> input)
     {
-        string name = (string) input["Name"];
+        string name = (string)input["Name"];
         switch (name)
         {
             case "Coordinates":
-                 Walk(input);
+                Walk(input);
                 break;
         }
     }
@@ -25,7 +25,7 @@ public class ControllerTrashCan : ControllerGeneric
     public void Walk(Dictionary<string, object> input)
     {
         Vector3 mouseCoordinates = (Vector3)input["Axis"];
-        string  state            = (string) input["State"];
+        string state = (string)input["State"];
         if (state == "Hold")
         {
             //rotation
