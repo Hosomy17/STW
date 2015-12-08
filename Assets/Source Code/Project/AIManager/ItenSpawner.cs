@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ItenSpawner : MonoBehaviour
 {
-    public GameObject iten;
+    public List<GameObject> lstIten;
+    public float velocity;
     private GameObject aux;
+    
     
     void Start()
     {
@@ -14,10 +17,12 @@ public class ItenSpawner : MonoBehaviour
     void Update ()
     {
         
+
     }
 
     private void Spawn()
     {
+
         Vector2 randomPointOnCircle;
         randomPointOnCircle = Random.insideUnitCircle;
         randomPointOnCircle.Normalize();
@@ -25,17 +30,18 @@ public class ItenSpawner : MonoBehaviour
         if (randomPointOnCircle.y < 0)
             randomPointOnCircle.y *= -1;
 
-        if(randomPointOnCircle.x* 15 < -9 || randomPointOnCircle.x* 15 > 9)
-        {
-            Spawn();
-            return;
-        }
+        //if(randomPointOnCircle.x* 1500 || randomPointOnCircle.x * 1500)
+        //{
+        //    Spawn();
+        //    return;
+        //}
 
-        aux = Instantiate(iten);
-        aux.transform.position = randomPointOnCircle * 15;
-        aux.transform.position = new Vector2(aux.transform.position.x, aux.transform.position.y-4.5f);
-        aux.GetComponent<Rigidbody2D>().AddForce(-randomPointOnCircle*200);
+        int num = Random.Range(0, lstIten.Count);
+        aux = Instantiate(lstIten[num]);
+        aux.transform.position = randomPointOnCircle * 1500;
+        aux.transform.position = new Vector2(aux.transform.position.x, aux.transform.position.y-450);
+        aux.GetComponent<Rigidbody2D>().AddForce(-randomPointOnCircle * velocity);
 
-        Invoke("Spawn", 4);
+        Invoke("Spawn", 2);
     }
 }

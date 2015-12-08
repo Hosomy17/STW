@@ -7,6 +7,6 @@ public static class FacadeEarth
     {
         BehaviourAnimation.Play(dataEarth.gameObject, "Hurt");
         BehaviourAnimation.Play(Camera.main.gameObject, "Hurt");
-        Camera.main.GetComponent<Shaker>().Shake(0.2f, 1);
+        Camera.main.GetComponent<Shaker>().Shake(40f, 1);
     }
 }
