@@ -16,6 +16,7 @@ public class DataIten : DataObjectGeneric
         if (c.gameObject.CompareTag("Player"))
         {
             Instantiate(effectDie, transform.position, transform.rotation);
+            GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManagerGame>().GainPoints(1  );
             Destroy(gameObject);
         }
         //if(c.gameObject.name == "Edges")

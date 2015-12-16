@@ -12,6 +12,7 @@ public static class FacadeTrashCan
 
     public static void Score(DataTrashCan dataTrashCan)
     {
+
     }
 
     public static void Idle(DataTrashCan dataTrashCan)
@@ -19,5 +20,10 @@ public static class FacadeTrashCan
         BehaviourAnimation.Play(dataTrashCan.gameObject, "Idle");
     }
 
-    
+    public static void ChangeColor(DataTrashCan dataTrashCan, string color)
+    {
+        RuntimeAnimatorController AnimatorController = Resources.Load("Animations/Trash Can/" + color + "/"+ color) as RuntimeAnimatorController;
+        Debug.Log("Animations/Trash Can/" + color + "/"+ color);
+        BehaviourAnimation.ChangeAnimatorController(dataTrashCan.gameObject, AnimatorController);
+    }
 }

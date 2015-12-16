@@ -4,12 +4,14 @@ using System.Collections.Generic;
 
 public class GamepadTouch : GamepadGeneric
 {
-    private ControllerGeneric controller;
+    private ControllerTrashCan ctrlTrashCan;
+    private ControllerBotton ctrlBotton;
     private Dictionary<string, object> input;
 
     void Awake()
     {
-        controller = new ControllerTrashCan();
+        ctrlTrashCan = new ControllerTrashCan();
+        ctrlBotton = new ControllerBotton();
         input = new Dictionary<string, object>();
         input.Add("Name", null);
         input.Add("Axis", null);
@@ -25,7 +27,16 @@ public class GamepadTouch : GamepadGeneric
 
         input["Name"] = "Coordinates";
         input["Axis"] = Camera.main.ScreenToViewportPoint(Input.mousePosition);
-        controller.SendInput(input);
+        ctrlTrashCan.SendInput(input);
     }
 
+    void OnMouseEnter()
+    {
+        ctrlBotton.Click();
+	}
+
+    void OnMouseExit()
+    {
+        ctrlBotton.Release();
+	}
 }

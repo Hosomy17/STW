@@ -13,9 +13,8 @@ public static class BehaviourAnimation
         gameObject.GetComponent<Animator>().SetTrigger(trigger);
     }
 
-    public static void ChangeAvatar(GameObject gameObject, RuntimeAnimatorController runtimeAnimatorController)
+    public static void ChangeAnimatorController(GameObject gameObject, RuntimeAnimatorController runtimeAnimatorController)
     {
-
         gameObject.GetComponent<Animator>().runtimeAnimatorController = runtimeAnimatorController;
     }
 }
