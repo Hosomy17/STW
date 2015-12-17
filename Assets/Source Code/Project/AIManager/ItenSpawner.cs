@@ -4,24 +4,25 @@ using System.Collections.Generic;
 
 public class ItenSpawner : MonoBehaviour
 {
-    public List<GameObject> lstItenBlue;
-    public List<GameObject> lstItenGreen;
-    public List<GameObject> lstItenRed;
-    public List<GameObject> lstItenYellow;
+    private List<string> colors;
     public float velocity;
-    private GameObject aux;
-    
+
+    void Awake()
+    {
+        colors = new List<string>();
+        colors.Add("Blue");
+        colors.Add("Green");
+        colors.Add("Red");
+        colors.Add("Yellow");
+    }
     void Start()
     {
     }
 
     void Update ()
-    {
-        
+    {}
 
-    }
-
-    private void Spawn(List<GameObject> lstIten)
+    public void Spawn()
     {
 
         Vector2 randomPointOnCircle;
@@ -33,15 +34,23 @@ public class ItenSpawner : MonoBehaviour
 
         if (randomPointOnCircle.x * 1500 < -1000 || randomPointOnCircle.x * 1500 > 1000)
         {
-            Spawn(lstIten);
+            Spawn();
             return;
         }
 
-        int num = Random.Range(0, lstIten.Count);
-        aux = Instantiate(lstIten[num]);
+        int index = Random.Range(0, colors.Count);
+        string color = colors[index];
+
+        //Total de itens por cor
+        index = Random.Range(0, 4);
+        GameObject aux = Resources.Load("Prefabs/Itens/"+color+"/"+color+"_Itens_"+index) as GameObject;
+        aux = Instantiate(aux);
+        aux.GetComponent<DataIten>().color = color;
 
         aux.transform.position = randomPointOnCircle * 1500;
         aux.transform.position = new Vector2(aux.transform.position.x, aux.transform.position.y-450);
         aux.GetComponent<Rigidbody2D>().AddForce(-randomPointOnCircle * velocity);
+        Invoke("Spawn", 3);
+
     }
 }

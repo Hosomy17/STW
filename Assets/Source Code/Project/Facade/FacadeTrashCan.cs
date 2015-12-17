@@ -22,8 +22,8 @@ public static class FacadeTrashCan
 
     public static void ChangeColor(DataTrashCan dataTrashCan, string color)
     {
+        dataTrashCan.color = color;
         RuntimeAnimatorController AnimatorController = Resources.Load("Animations/Trash Can/" + color + "/"+ color) as RuntimeAnimatorController;
-        Debug.Log("Animations/Trash Can/" + color + "/"+ color);
         BehaviourAnimation.ChangeAnimatorController(dataTrashCan.gameObject, AnimatorController);
     }
 }

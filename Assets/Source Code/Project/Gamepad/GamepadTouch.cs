@@ -30,7 +30,7 @@ public class GamepadTouch : GamepadGeneric
         ctrlTrashCan.SendInput(input);
     }
 
-    void OnMouseEnter()
+    void OnMouseDown()
     {
         ctrlBotton.Click();
 	}

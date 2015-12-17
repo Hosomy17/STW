@@ -4,6 +4,7 @@ using System.Collections;
 public class DataTrashCan : DataObjectGeneric
 {
     public float moveSpeed;
+    public string color;
     private ParticleSystem particleSystem;
 
     void Awake()
