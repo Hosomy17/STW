@@ -17,6 +17,7 @@ public class ItenSpawner : MonoBehaviour
     }
     void Start()
     {
+        Spawn();
     }
 
     void Update ()

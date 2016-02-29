@@ -5,12 +5,12 @@ using System.Collections.Generic;
 public class ControllerTrashCan : ControllerGeneric
 {
     private ClassTrashCan classTrashCan;
-    private SceneManagerGame sceneManagerGame;
+    private ScriptGame scriptGame;
 
     public ControllerTrashCan()
     {
         classTrashCan = GameObject.Find("Player/Trash Can").GetComponent<ClassTrashCan>();
-        sceneManagerGame = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManagerGame>();
+        scriptGame = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<ScriptGame>();
         classTrashCan.controllerTrashCan = this;
     }
 
@@ -29,7 +29,7 @@ public class ControllerTrashCan : ControllerGeneric
     {
         FacadeTrashCan.Hurt(classTrashCan);
         if (classTrashCan.lifes <= 0)
-            sceneManagerGame.GameOver();
+            scriptGame.GameOver();
     }
 
     public void Walk(Dictionary<string, object> input)

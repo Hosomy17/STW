@@ -10,7 +10,7 @@ public class ControllerBotton : ControllerGeneric
     public ControllerBotton()
     {
         classTrashCan = GameObject.Find("Player/Trash Can").GetComponent<ClassTrashCan>();
-        classBotton = GameObject.Find("Button").GetComponent<ClassBotton>();
+        classBotton = GameObject.Find("Button Color").GetComponent<ClassBotton>();
     }
 
     public override void SendInput(Dictionary<string, object> input)

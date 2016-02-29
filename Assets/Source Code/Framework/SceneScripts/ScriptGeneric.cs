@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SceneManagerGeneric : MonoBehaviour
+public class ScriptGeneric : MonoBehaviour
 {
 
     private GameManagerGeneric gameManager;
