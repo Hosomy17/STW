@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DataIten : DataObjectGeneric
+public class ClassIten : ClassGeneric
 {
 
-    public GameObject effectDie;
+    public GameObject effectDestroy;
     public string color;
 
     void OnCollisionEnter2D(Collision2D c)
@@ -15,9 +15,9 @@ public class DataIten : DataObjectGeneric
         }  
         if (c.gameObject.CompareTag("Player"))
         {
-            Instantiate(effectDie, transform.position, transform.rotation);
+            Instantiate(effectDestroy, transform.position, transform.rotation);
 
-            if (c.gameObject.transform.parent.GetComponent<DataTrashCan>().color == this.color)
+            if (c.gameObject.transform.parent.GetComponent<ClassTrashCan>().color == this.color)
                 GameObject.FindGameObjectWithTag("SceneManager").GetComponent<SceneManagerGame>().GainPoints(1);
             
             Destroy(gameObject);

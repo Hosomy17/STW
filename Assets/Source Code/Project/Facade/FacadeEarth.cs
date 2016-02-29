@@ -3,7 +3,7 @@ using System.Collections;
 
 public static class FacadeEarth
 {
-    public static void Hurt(DataEarth dataEarth)
+    public static void Hurt(ClassEarth dataEarth)
     {
         BehaviourAnimation.Play(dataEarth.gameObject, "Hurt");
         BehaviourAnimation.Play(Camera.main.gameObject, "Hurt");

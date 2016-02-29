@@ -3,17 +3,17 @@ using System.Collections;
 
 public class ControllerEarth : ControllerGeneric
 {
-    private DataEarth dataEarth;
+    private ClassEarth classEarth;
 
     public ControllerEarth()
     {
-        dataEarth = GameObject.Find("Background/Earth").GetComponent<DataEarth>();
-        dataEarth.controllerEarth = this;
+        classEarth = GameObject.Find("Background/Earth").GetComponent<ClassEarth>();
+        classEarth.controllerEarth = this;
     }
 
     public void Hurt()
     {
-        FacadeEarth.Hurt(dataEarth);
+        FacadeEarth.Hurt(classEarth);
     }
 
     public override void SendInput(System.Collections.Generic.Dictionary<string, object> input)

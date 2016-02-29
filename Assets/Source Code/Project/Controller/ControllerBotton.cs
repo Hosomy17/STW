@@ -4,13 +4,13 @@ using System.Collections.Generic;
 
 public class ControllerBotton : ControllerGeneric
 {
-    private DataBotton dataBotton;
-    private DataTrashCan dataTrashCan;
+    private ClassBotton classBotton;
+    private ClassTrashCan classTrashCan;
 
     public ControllerBotton()
     {
-        dataTrashCan = GameObject.Find("Player/Trash Can").GetComponent<DataTrashCan>();
-        dataBotton = GameObject.Find("Button").GetComponent<DataBotton>();
+        classTrashCan = GameObject.Find("Player/Trash Can").GetComponent<ClassTrashCan>();
+        classBotton = GameObject.Find("Button").GetComponent<ClassBotton>();
     }
 
     public override void SendInput(Dictionary<string, object> input)
@@ -20,9 +20,9 @@ public class ControllerBotton : ControllerGeneric
 
     public void Click()
     {
-        string color = dataBotton.Colors;
-        FacadeButton.DownClick(dataBotton, color);
-        FacadeTrashCan.ChangeColor(dataTrashCan, color);
+        string color = classBotton.Colors;
+        FacadeButton.DownClick(classBotton, color);
+        FacadeTrashCan.ChangeColor(classTrashCan, color);
     }
 
     public void Release()

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DataBotton : DataObjectGeneric
+public class ClassBotton : ClassGeneric
 {
     private Queue colors;
 
@@ -9,10 +9,10 @@ public class DataBotton : DataObjectGeneric
     {
         colors = new Queue();
 
-        colors.Enqueue("Blue");
         colors.Enqueue("Green");
         colors.Enqueue("Red");
         colors.Enqueue("Yellow");
+        colors.Enqueue("Blue");
     }
 
     public string Colors

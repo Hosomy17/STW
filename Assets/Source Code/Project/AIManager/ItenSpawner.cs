@@ -45,7 +45,7 @@ public class ItenSpawner : MonoBehaviour
         index = Random.Range(0, 4);
         GameObject aux = Resources.Load("Prefabs/Itens/"+color+"/"+color+"_Itens_"+index) as GameObject;
         aux = Instantiate(aux);
-        aux.GetComponent<DataIten>().color = color;
+        aux.GetComponent<ClassIten>().color = color;
 
         aux.transform.position = randomPointOnCircle * 1500;
         aux.transform.position = new Vector2(aux.transform.position.x, aux.transform.position.y-450);

@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityStandardAssets.ImageEffects;
 
 public class Shaker : MonoBehaviour {
 
@@ -29,13 +28,13 @@ public class Shaker : MonoBehaviour {
     {
         this.intensity = intensity;
         StartCoroutine("StopShake", duration);
-        GetComponent<Blur>().enabled = true;
+        GetComponent<PixelBoy>().enabled = true;
     }
 
     private IEnumerator StopShake(float duration)
     {
         yield return new WaitForSeconds(duration);
         this.intensity = 0;
-        GetComponent<Blur>().enabled = false;
+        GetComponent<PixelBoy>().enabled = false;
     }
 }

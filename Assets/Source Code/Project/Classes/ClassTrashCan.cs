@@ -1,14 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DataTrashCan : DataObjectGeneric
+public class ClassTrashCan : ClassGeneric
 {
     public float moveSpeed;
+    public int lifes;
     public string color;
+    public ControllerTrashCan controllerTrashCan;
     private ParticleSystem particleSystem;
 
     void Awake()
     {
+        lifes = 0;
         particleSystem = GetComponent<ParticleSystem>();
     }
 
