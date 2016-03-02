@@ -5,16 +5,13 @@ public class Shaker : MonoBehaviour {
 
     private Vector3 directions;
     private Vector3 originPosition;
-    private float   intensity;
-    private GameObject gameObjectt;
+    public float  intensity;
 
 	void Awake()
     {
         originPosition = transform.position;
-        gameObjectt = (GameObject) GameObject.Find("Background/Earth");
     }
 	
-	// Update is called once per frame
 	void Update ()
     {
         
@@ -28,13 +25,11 @@ public class Shaker : MonoBehaviour {
     {
         this.intensity = intensity;
         StartCoroutine("StopShake", duration);
-        GetComponent<PixelBoy>().enabled = true;
     }
 
     private IEnumerator StopShake(float duration)
     {
         yield return new WaitForSeconds(duration);
         this.intensity = 0;
-        GetComponent<PixelBoy>().enabled = false;
     }
 }

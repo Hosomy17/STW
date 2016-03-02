@@ -20,6 +20,11 @@ public class Timer
         this.time = Time.time;
     }
 
+    public void Reset(float time)
+    {
+        this.time = Time.time + time;
+    }
+
     public float GetTime()
     {
         return Time.time - this.time;

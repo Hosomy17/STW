@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
+
 
 public class GameManagerGeneric
 {
     private static GameManagerGeneric  gameManagerGeneric;
 
-    private Dictionary<string, object> info;
+    private Dictionary<string, object> info = new Dictionary<string, object>();
 
     private GameManagerGeneric(){}
 
@@ -60,7 +62,7 @@ public class GameManagerGeneric
 
     public void LoadScene(string scene)
     {
-        Application.LoadLevel(scene);
+        SceneManager.LoadScene(scene);
     }
 
     public void CloseGame()
