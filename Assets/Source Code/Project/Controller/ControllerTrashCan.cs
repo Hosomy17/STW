@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class ControllerTrashCan : ControllerGeneric
 {
@@ -11,6 +12,13 @@ public class ControllerTrashCan : ControllerGeneric
     {
         classTrashCan = GameObject.Find("Player/Trash Can").GetComponent<ClassTrashCan>();
         scriptGame = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<ScriptGame>();
+        classTrashCan.controllerTrashCan = this;
+    }
+
+    public override void TrackObject(GameObject gameObject)
+    {
+        classTrashCan = gameObject.GetComponent<ClassTrashCan>();
+        scriptGame = gameObject.GetComponent<ScriptGame>();
         classTrashCan.controllerTrashCan = this;
     }
 
@@ -42,10 +50,10 @@ public class ControllerTrashCan : ControllerGeneric
             //rotation
             float r = classTrashCan.transform.parent.rotation.eulerAngles.z;
             //Right
-            if (mouseCoordinates.x > 0.5 && r > 230)
+            if (mouseCoordinates.x > 0.5 && r > 200)
                 FacadeTrashCan.Walk(classTrashCan, 1);
             //Left
-            else if (mouseCoordinates.x < 0.5 && r < 310)
+            else if (mouseCoordinates.x < 0.5 && r < 340)
                 FacadeTrashCan.Walk(classTrashCan, -1);
             else
                 FacadeTrashCan.Idle(classTrashCan);

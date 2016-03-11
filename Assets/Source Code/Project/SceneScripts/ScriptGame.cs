@@ -44,7 +44,7 @@ public class ScriptGame : ScriptGeneric
     public void Quit()
     {
         Debug.Log("QUIT");
-        Application.Quit();
+        // Application.Quit();
     }
 
     public void Resume()
@@ -55,6 +55,6 @@ public class ScriptGame : ScriptGeneric
     public void GameOver()
     {
         Debug.Log("QUIT");
-        Application.Quit();
+        //Application.Quit();
     }
 }

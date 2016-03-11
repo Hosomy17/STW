@@ -7,16 +7,16 @@ public class ClassTrashCan : ClassGeneric
     public int lifes;
     public string color;
     public ControllerTrashCan controllerTrashCan;
-    private ParticleSystem particleSystem;
+    private ParticleSystem particles;
 
     void Awake()
     {
         lifes = 0;
-        particleSystem = GetComponent<ParticleSystem>();
+        particles = GetComponent<ParticleSystem>();
     }
 
     void Update()
     {
-        particleSystem.startRotation = -transform.rotation.eulerAngles.z * Mathf.Deg2Rad;
+        particles.startRotation = -transform.rotation.eulerAngles.z * Mathf.Deg2Rad;
     }
 }

@@ -20,7 +20,7 @@ TextureImporter:
   bumpmap:
     convertToNormalMap: 0
     externalNormalMap: 0
-    heightScale: .25
+    heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
@@ -45,7 +45,7 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
-  spritePivot: {x: .5, y: .5}
+  spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 1
   alphaIsTransparency: 1
@@ -63,6 +63,21 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 319, y: 79.5}
+        - {x: 317, y: 81.5}
+        - {x: 137, y: 81.5}
+        - {x: 137, y: 168.5}
+        - {x: -141, y: 168.5}
+        - {x: -141, y: 81.5}
+        - {x: -321, y: 81.5}
+        - {x: -323, y: 79.5}
+        - {x: -323, y: -100.5}
+        - {x: -400, y: -100.5}
+        - {x: -400, y: -168.5}
+        - {x: 400, y: -168.5}
+        - {x: 400, y: -100.5}
+        - {x: 319, y: -100.5}
     - name: Earth_1
       rect:
         serializedVersion: 2
@@ -73,6 +88,21 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 319, y: 79.5}
+        - {x: 317, y: 81.5}
+        - {x: 137, y: 81.5}
+        - {x: 137, y: 168.5}
+        - {x: -141, y: 168.5}
+        - {x: -141, y: 81.5}
+        - {x: -321, y: 81.5}
+        - {x: -323, y: 79.5}
+        - {x: -323, y: -100.5}
+        - {x: -400, y: -100.5}
+        - {x: -400, y: -168.5}
+        - {x: 400, y: -168.5}
+        - {x: 400, y: -100.5}
+        - {x: 319, y: -100.5}
     - name: Earth_2
       rect:
         serializedVersion: 2
@@ -83,6 +113,22 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 319, y: 79.5}
+        - {x: 317, y: 81.5}
+        - {x: 137, y: 81.5}
+        - {x: 137, y: 168.5}
+        - {x: -141, y: 168.5}
+        - {x: -141, y: 81.5}
+        - {x: -321, y: 81.5}
+        - {x: -323, y: 79.5}
+        - {x: -323, y: -100.5}
+        - {x: -400, y: -100.5}
+        - {x: -400, y: -168.5}
+        - {x: 400, y: -168.5}
+        - {x: 400, y: -100.5}
+        - {x: 319, y: -100.5}
+    outline: []
   spritePackingTag: 
   userData: 
   assetBundleName: 

@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ScriptGeneric : MonoBehaviour
+public abstract class ScriptGeneric : MonoBehaviour
 {
 
-    private GameManagerGeneric gameManager;
+    public GameManagerGeneric gameManager;
 
 	void Awake ()
     {

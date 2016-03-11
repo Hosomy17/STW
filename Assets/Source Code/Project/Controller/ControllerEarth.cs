@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class ControllerEarth : ControllerGeneric
 {
@@ -8,6 +9,12 @@ public class ControllerEarth : ControllerGeneric
     public ControllerEarth()
     {
         classEarth = GameObject.Find("Background/Earth").GetComponent<ClassEarth>();
+        classEarth.controllerEarth = this;
+    }
+
+    public override void TrackObject(GameObject gameObject)
+    {
+        classEarth = gameObject.GetComponent<ClassEarth>();
         classEarth.controllerEarth = this;
     }
 
@@ -20,4 +27,6 @@ public class ControllerEarth : ControllerGeneric
     {
         throw new System.NotImplementedException();
     }
+
+    
 }
