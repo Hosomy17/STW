@@ -61,4 +61,9 @@ public class ControllerTrashCan : ControllerGeneric
         else
             FacadeTrashCan.Idle(classTrashCan);
     }
+
+    public void Point()
+    {
+        FacadeTrashCan.Score(classTrashCan);
+    }
 }

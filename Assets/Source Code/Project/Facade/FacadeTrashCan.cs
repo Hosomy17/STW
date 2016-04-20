@@ -12,7 +12,7 @@ public static class FacadeTrashCan
 
     public static void Score(ClassTrashCan dataTrashCan)
     {
-
+        //BehaviourSound.Play("SFX/Point");
     }
 
     public static void Idle(ClassTrashCan dataTrashCan)

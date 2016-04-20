@@ -8,7 +8,7 @@ public class ControllerEarth : ControllerGeneric
 
     public ControllerEarth()
     {
-        classEarth = GameObject.Find("Background/Earth").GetComponent<ClassEarth>();
+        classEarth = GameObject.Find("Earth").GetComponent<ClassEarth>();
         classEarth.controllerEarth = this;
     }
 

@@ -10,7 +10,7 @@ public class AutoMove : MonoBehaviour
 
     void Awake()
     {
-        destination = Vector3.zero;
+        destination = transform.position;
         origin = transform.position;
     }
 
