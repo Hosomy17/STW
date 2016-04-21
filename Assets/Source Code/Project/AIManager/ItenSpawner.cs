@@ -148,7 +148,7 @@ public class ItenSpawner : MonoBehaviour
         string color = colors[0];
 
         //Total de itens por cor
-        int index = Random.Range(0, 4);
+        int index = Random.Range(0, 3);
         GameObject aux = Resources.Load("Prefabs/Itens/"+color+"/"+color+"_Itens_"+index) as GameObject;
         aux = Instantiate(aux);
         aux.GetComponent<ClassIten>().color = color;
