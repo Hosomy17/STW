@@ -13,6 +13,7 @@ public class ClassEarth : ClassGeneric
     void Start()
     {
         controllerTrashCan = GameObject.Find("Main/Player/Trash Can").GetComponent<ClassTrashCan>().controllerTrashCan;
+        Blink();
     }
 
     void OnCollisionEnter2D(Collision2D c)
@@ -22,5 +23,12 @@ public class ClassEarth : ClassGeneric
             controllerEarth.Hurt();
             controllerTrashCan.Hurt();
         }
+    }
+    private void Blink()
+    {
+        BehaviourAnimation.Play(gameObject, "Blink");
+
+        float n = Random.Range(5f,15f);
+        Invoke("Blink",n);
     }
 }

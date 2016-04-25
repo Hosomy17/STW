@@ -6,25 +6,25 @@ public static class FacadeTrashCan
     public static void Walk(ClassTrashCan dataTrashCan, int direction)
     {
         BehaviourPhysics.Turn(dataTrashCan.transform.parent.gameObject, Vector3.forward * direction, dataTrashCan.moveSpeed);
-        BehaviourAnimation.Play(dataTrashCan.gameObject, "Walk");
+        //BehaviourAnimation.Play(dataTrashCan.gameObject, "Walk");
         //BehaviourSound.Play("Walk");
     }
 
     public static void Score(ClassTrashCan dataTrashCan)
     {
-
+        //BehaviourSound.Play("SFX/Point");
     }
 
     public static void Idle(ClassTrashCan dataTrashCan)
     {
-        BehaviourAnimation.Play(dataTrashCan.gameObject, "Idle");
+        //BehaviourAnimation.Play(dataTrashCan.gameObject, "Idle");
     }
 
     public static void ChangeColor(ClassTrashCan dataTrashCan, string color)
     {
         dataTrashCan.color = color;
         RuntimeAnimatorController AnimatorController = Resources.Load("Animations/Trash Can/" + color + "/"+ color) as RuntimeAnimatorController;
-        BehaviourAnimation.ChangeAnimatorController(dataTrashCan.gameObject, AnimatorController);
+        //BehaviourAnimation.ChangeAnimatorController(dataTrashCan.gameObject, AnimatorController);
     }
 
     public static void Hurt(ClassTrashCan dataTrashCan)

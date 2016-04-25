@@ -15,9 +15,12 @@ public class ClassIten : ClassGeneric
         }  
         if (c.gameObject.CompareTag("Player"))
         {
+            ClassTrashCan player = c.gameObject.transform.parent.GetComponent<ClassTrashCan>();
+            player.controllerTrashCan.Point();
+
             Instantiate(effectDestroy, transform.position, transform.rotation);
 
-            if (c.gameObject.transform.parent.GetComponent<ClassTrashCan>().color == this.color)
+            if (player.color == this.color)
                 GameObject.FindGameObjectWithTag("SceneManager").GetComponent<ScriptGame>().GainPoints(1);
             
             Destroy(gameObject);

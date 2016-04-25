@@ -6,10 +6,8 @@ public class ScriptGame : ScriptGeneric
 {
     public Text txtPoints;
     private int totalPoints;
-
-    public GameObject button;
     public GameObject trashCan;
-
+    public ItenSpawner itenmSpawner;
 
     void Awake()
     {

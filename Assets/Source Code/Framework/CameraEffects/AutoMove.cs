@@ -10,21 +10,24 @@ public class AutoMove : MonoBehaviour
 
     void Awake()
     {
-        destination = Vector3.zero;
-        origin = transform.position;
+        destination = transform.localPosition;
+        origin = transform.localPosition;
     }
 
     void Update()
     {
-        if (Vector3.Distance(transform.position, destination) < 1)
+        if (Vector3.Distance(transform.localPosition, destination) < 1)
         {
-            destination = transform.position + Random.onUnitSphere * velocity;
+            destination = transform.localPosition + Random.onUnitSphere * distance;
             destination.z = 0;
 
             if (Vector3.Distance(destination, origin) > distance)
-                destination = transform.position;
+            {
+                destination = transform.localPosition;
+            }
+            
         }
 
-        transform.position = Vector3.Lerp(transform.position, destination, Time.deltaTime*10);
+        transform.localPosition = Vector3.Lerp(transform.localPosition, destination, Time.deltaTime * velocity);
     }
 }

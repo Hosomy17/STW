@@ -16,16 +16,44 @@ public class ItenSpawner : MonoBehaviour
         colors.Add("Red");
         colors.Add("Yellow");
     }
+
     void Start()
     {
-        //StartCoroutine(RandomPositions(5));
-        //StartCoroutine(OnePosition(5));
-        //StartCoroutine(TwoOneRandomPositions(10));
-        StartCoroutine(MirroredFixedPosition(10));
+        //StartCoroutine(RandomPositions(40));
+        //StartCoroutine(FixedPosition(40));
+        //StartCoroutine(TwoOneRandomPositions(40));
+        //StartCoroutine(MirroredFixedPosition(40));
+        //StartCoroutine(SpradedPositions(40));
     }
 
     void Update ()
     {}
+
+    public IEnumerator SpradedPositions(int total)
+    {
+        //3000 é a distancia entre o ponto minimo e maximo de onde o lixo é cridado
+        int distance = 3000 / total;
+        int limitPointOnCircle = distance;
+        Vector2 randomPointOnCircle;
+
+        for (int i = 0; i < total; i++)
+        {
+            do
+            {
+                randomPointOnCircle = Random.insideUnitCircle;
+                randomPointOnCircle.Normalize();
+
+                if (randomPointOnCircle.y < 0)
+                    randomPointOnCircle.y *= -1;
+
+            } while (randomPointOnCircle.x * 1500 < -1500 + limitPointOnCircle - distance || randomPointOnCircle.x * 1500 > -1500 + limitPointOnCircle);
+
+            limitPointOnCircle += distance;
+            Spawn(randomPointOnCircle);
+            yield return new WaitForSeconds(0.1f);
+
+        }
+    }
 
     public IEnumerator RandomPositions(int total)
     {
@@ -111,7 +139,7 @@ public class ItenSpawner : MonoBehaviour
         {
             randomPointOnCircle.x *= -1;
             Spawn(randomPointOnCircle);
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(1.0f);
         }
     }
 
@@ -120,12 +148,12 @@ public class ItenSpawner : MonoBehaviour
         string color = colors[0];
 
         //Total de itens por cor
-        int index = Random.Range(0, 4);
+        int index = Random.Range(0, 3);
         GameObject aux = Resources.Load("Prefabs/Itens/"+color+"/"+color+"_Itens_"+index) as GameObject;
         aux = Instantiate(aux);
         aux.GetComponent<ClassIten>().color = color;
 
-        aux.transform.position = position * 1500;
+        aux.transform.position = position * 2000;
         Vector2 direction = target.position - aux.transform.position;
         aux.GetComponent<Rigidbody2D>().AddForce(direction.normalized * velocity);
     }

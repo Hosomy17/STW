@@ -9,7 +9,7 @@ public class Shaker : MonoBehaviour {
 
 	void Awake()
     {
-        originPosition = transform.position;
+        originPosition = transform.localPosition;
     }
 	
 	void Update ()
@@ -17,7 +17,7 @@ public class Shaker : MonoBehaviour {
         
         directions         = Random.onUnitSphere * intensity;
         directions.z       = originPosition.z;
-        transform.position = originPosition + directions;
+        transform.localPosition = originPosition + directions;
         //Debug.DrawRay(gameObjectt.transform.position, Random.insideUnitSphere * 20);
 	}
 
