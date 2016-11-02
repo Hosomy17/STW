@@ -4,14 +4,13 @@ using System.Collections;
 public class ClassTrashCan : ClassGeneric
 {
     public float moveSpeed;
-    public int lifes;
-    public string color;
+    public float life;
     public ControllerTrashCan controllerTrashCan;
     private ParticleSystem particles;
 
     void Awake()
     {
-        lifes = 0;
+        life = 80;
         particles = GetComponent<ParticleSystem>();
     }
 

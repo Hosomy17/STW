@@ -4,7 +4,7 @@ using System.Collections;
 public class ClassEarth : ClassGeneric
 {
     public ControllerEarth controllerEarth;
-    public ControllerTrashCan controllerTrashCan;
+    public ClassTrashCan trashCan;
     void Awake()
     {
         controllerEarth = new ControllerEarth();
@@ -12,7 +12,7 @@ public class ClassEarth : ClassGeneric
 
     void Start()
     {
-        controllerTrashCan = GameObject.Find("Main/Player/Trash Can").GetComponent<ClassTrashCan>().controllerTrashCan;
+        trashCan = GameObject.Find("Main/Player/Trash Can").GetComponent<ClassTrashCan>();
         Blink();
     }
 
@@ -20,8 +20,10 @@ public class ClassEarth : ClassGeneric
     {
         if(c.gameObject.CompareTag("Iten"))
         {
+            trashCan.controllerTrashCan.Hurt();
             controllerEarth.Hurt();
-            controllerTrashCan.Hurt();
+
+            BehaviourAnimation.Float(gameObject, "Life", trashCan.life);
         }
     }
     private void Blink()

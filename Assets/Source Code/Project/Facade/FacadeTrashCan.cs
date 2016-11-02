@@ -12,7 +12,12 @@ public static class FacadeTrashCan
 
     public static void Score(ClassTrashCan dataTrashCan)
     {
-        //BehaviourSound.Play("SFX/Point");
+        dataTrashCan.life += 1 * 5;
+
+        if (dataTrashCan.life > 100)
+            dataTrashCan.life = 100;
+
+        BehaviourSound.Play("SFX/Point");
     }
 
     public static void Idle(ClassTrashCan dataTrashCan)
@@ -22,13 +27,11 @@ public static class FacadeTrashCan
 
     public static void ChangeColor(ClassTrashCan dataTrashCan, string color)
     {
-        dataTrashCan.color = color;
-        RuntimeAnimatorController AnimatorController = Resources.Load("Animations/Trash Can/" + color + "/"+ color) as RuntimeAnimatorController;
-        //BehaviourAnimation.ChangeAnimatorController(dataTrashCan.gameObject, AnimatorController);
+        BehaviourAnimation.Play(dataTrashCan.gameObject, "Color_"+color);
     }
 
     public static void Hurt(ClassTrashCan dataTrashCan)
     {
-        dataTrashCan.lifes--;
+        dataTrashCan.life -= 1 * 5;
     }
 }

@@ -8,11 +8,15 @@ public class ControllerTrashCan : ControllerGeneric
     private ClassTrashCan classTrashCan;
     private ScriptGame scriptGame;
 
+    private GameObject earth;
+
     public ControllerTrashCan()
     {
         classTrashCan = GameObject.Find("Player/Trash Can").GetComponent<ClassTrashCan>();
         scriptGame = GameObject.FindGameObjectWithTag("SceneManager").GetComponent<ScriptGame>();
         classTrashCan.controllerTrashCan = this;
+
+        earth = GameObject.Find("Earth");
     }
 
     public override void TrackObject(GameObject gameObject)
@@ -36,7 +40,7 @@ public class ControllerTrashCan : ControllerGeneric
     public void Hurt()
     {
         FacadeTrashCan.Hurt(classTrashCan);
-        if (classTrashCan.lifes <= 0)
+        if (classTrashCan.life <= 0)
             scriptGame.GameOver();
     }
 
@@ -65,5 +69,7 @@ public class ControllerTrashCan : ControllerGeneric
     public void Point()
     {
         FacadeTrashCan.Score(classTrashCan);
+
+        BehaviourAnimation.Float(earth,"Life",classTrashCan.life);
     }
 }

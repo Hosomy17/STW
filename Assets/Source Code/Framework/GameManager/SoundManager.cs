@@ -33,6 +33,6 @@ public class SoundManager
 			audios.Add(audio,src);
 		}
 		src = audios[audio];
-		AudioSource.PlayClipAtPoint(src, Camera.main.transform.position);
+		AudioSource.PlayClipAtPoint(src, Vector3.zero);
 	}
 }

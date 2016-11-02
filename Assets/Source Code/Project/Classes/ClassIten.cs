@@ -5,7 +5,6 @@ public class ClassIten : ClassGeneric
 {
 
     public GameObject effectDestroy;
-    public string color;
 
     void OnCollisionEnter2D(Collision2D c)
     {
@@ -19,9 +18,6 @@ public class ClassIten : ClassGeneric
             player.controllerTrashCan.Point();
 
             Instantiate(effectDestroy, transform.position, transform.rotation);
-
-            if (player.color == this.color)
-                GameObject.FindGameObjectWithTag("SceneManager").GetComponent<ScriptGame>().GainPoints(1);
             
             Destroy(gameObject);
         }

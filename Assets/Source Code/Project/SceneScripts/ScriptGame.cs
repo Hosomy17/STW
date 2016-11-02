@@ -14,6 +14,11 @@ public class ScriptGame : ScriptGeneric
         totalPoints    = 0;
     }
 
+    void Start()
+    {
+        StartCoroutine(itenmSpawner.FixedPosition(1000));
+    }
+
     public void GainPoints(int points)
     {
         totalPoints += points;

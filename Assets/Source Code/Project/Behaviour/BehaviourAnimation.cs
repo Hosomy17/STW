@@ -17,4 +17,9 @@ public static class BehaviourAnimation
     {
         gameObject.GetComponent<Animator>().runtimeAnimatorController = runtimeAnimatorController;
     }
+
+    public static void Float(GameObject gameObject,string name, float value)
+    {
+        gameObject.GetComponent<Animator>().SetFloat(name, value);
+    }
 }

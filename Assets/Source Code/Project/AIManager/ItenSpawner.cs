@@ -151,7 +151,6 @@ public class ItenSpawner : MonoBehaviour
         int index = Random.Range(0, 3);
         GameObject aux = Resources.Load("Prefabs/Itens/"+color+"/"+color+"_Itens_"+index) as GameObject;
         aux = Instantiate(aux);
-        aux.GetComponent<ClassIten>().color = color;
 
         aux.transform.position = position * 2000;
         Vector2 direction = target.position - aux.transform.position;
